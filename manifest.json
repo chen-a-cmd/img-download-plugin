@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "电商商品图片下载助手",
+  "version": "1.0.0",
+  "description": "在淘宝/天猫商品详情页提取全部商品图片，支持预览与批量下载",
+  "permissions": ["downloads"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://item.taobao.com/*",
+        "https://*.taobao.com/*",
+        "https://detail.tmall.com/*",
+        "https://*.tmall.com/*",
+        "https://detail.tmall.hk/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
